@@ -28,7 +28,8 @@
 	},
 	"scripts": {
 		"lint": "eslint **/*.ts",
-		"build": "tsup ./src/index.ts --format esm,cjs --dts --sourcemap"
+		"build": "tsup ./src/index.ts --format esm,cjs --dts --sourcemap",
+		"dev": "nodemon --watch src --ext ts --exec 'npm run build'"
 	},
 	"publishConfig": {
 		"directory": "dist",
@@ -47,6 +48,7 @@
 	},
 	"devDependencies": {
 		"@types/node": "^24.8.1",
+		"nodemon": "^3.1.10",
 		"tsup": "^8.5.0",
 		"typescript": "^5.9.3"
 	}

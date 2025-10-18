@@ -22,14 +22,21 @@ export const plugin: PluginFunction<VueDatoCmsRawPluginConfig, Types.ComplexPlug
 		),
 		...(config.externalFragments || []),
 	];
-	const visitor = new DatoCmsVisitor(schema, allFragments, config);
-	//@ts-ignore
-	const visitorResult = oldVisit(allAst, { leave: visitor });
 
-	return {
-		prepend: visitor.getImports(),
-		content: [visitor.fragments, ...visitorResult.definitions.filter((t: any) => typeof t === 'string')].join('\n'),
-	};
+	try {
+		const visitor = new DatoCmsVisitor(schema, allFragments, config);
+
+		//@ts-ignore
+		const visitorResult = oldVisit(allAst, { leave: visitor });
+
+		return {
+			prepend: visitor.getImports(),
+			content: [visitor.fragments, ...visitorResult.definitions.filter((t: any) => typeof t === 'string')].join('\n'),
+		};
+	} catch (e) {
+		console.log(e);
+		throw e;
+	}
 };
 
 export const validate: PluginValidateFn<any> = async (

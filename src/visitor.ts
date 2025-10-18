@@ -11,12 +11,12 @@ import {
 } from '@graphql-codegen/visitor-plugin-common';
 import { VueDatoCmsRawPluginConfig } from './config.js';
 
-export interface UrqlPluginConfig extends ClientSideBasePluginConfig {
+export interface DatoCmsPluginConfig extends ClientSideBasePluginConfig {
 	withComposition: boolean;
 	urqlImportFrom: string;
 }
 
-export class DatoCmsVisitor extends ClientSideBaseVisitor<VueDatoCmsRawPluginConfig, UrqlPluginConfig> {
+export class DatoCmsVisitor extends ClientSideBaseVisitor<VueDatoCmsRawPluginConfig, DatoCmsPluginConfig> {
 	private _externalImportPrefix = '';
 
 	constructor(schema: GraphQLSchema, fragments: LoadedFragment[], rawConfig: VueDatoCmsRawPluginConfig) {
