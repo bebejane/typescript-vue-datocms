@@ -34,9 +34,6 @@
 		"directory": "dist",
 		"access": "public"
 	},
-	"typescript": {
-		"definition": "dist/typings/index.d.ts"
-	},
 	"dependencies": {
 		"@graphql-codegen/plugin-helpers": "^3.0.0",
 		"@graphql-codegen/visitor-plugin-common": "2.13.8",
